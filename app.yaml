@@ -1,0 +1,13 @@
+name: hello
+scheduling:
+  type: Conditional
+  selectors:
+    type: controller
+spec:
+  containers:
+    - name: hello
+      image: quay.io/synpse/hello-synpse-go:latest
+      forcePull: true
+      networkMode: host
+      ports:
+        - 8080:8080
