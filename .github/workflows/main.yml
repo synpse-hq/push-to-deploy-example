@@ -14,4 +14,4 @@ jobs:
           key: ${{ secrets.SYNPSE_ACCESS_KEY }}
           project: karolis-homelab
           namespace: default
-          filepath: ./app.yaml          
+          filepath: app.yaml          
