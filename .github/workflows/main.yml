@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Synpse application update
     steps:
-      - name: Hello world action step
+      - name: Deploy or update application to Synpse
         id: hello
         uses: synpse-hq/action@v0
         with:
-          key: ""
+          key: ${{ secrets.SYNPSE_ACCESS_KEY }}
           project: karolis-homelab
           namespace: default
           filepath: app.yaml          
