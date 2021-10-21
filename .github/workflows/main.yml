@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Synpse application update
     steps:
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Deploy or update application to Synpse
         id: hello
         uses: synpse-hq/action@v0.1
