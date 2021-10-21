@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Deploy or update application to Synpse
         id: hello
-        uses: synpse-hq/action@v0
+        uses: synpse-hq/action@v0.1
         with:
           key: ${{ secrets.SYNPSE_ACCESS_KEY }}
           project: karolis-homelab
