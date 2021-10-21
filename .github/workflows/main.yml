@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: synpse-hq/action@v1
+        uses: synpse-hq/action@v0
         with:
           key: ""
           project: karolis-homelab
