@@ -7,10 +7,8 @@ spec:
   containers:
     - name: hello
       image: quay.io/synpse/hello-synpse-go:latest
-      forcePull: true
-      networkMode: host
       ports:
-        - 8080:8080
+        - 8888:8080
       env:
         - name: SYNPSE_CONTROLLER_ADDR
           value: "foo"
