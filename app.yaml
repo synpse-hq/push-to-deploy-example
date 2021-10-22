@@ -8,7 +8,7 @@ spec:
     - name: hello
       image: quay.io/synpse/hello-synpse-go:latest
       ports:
-        - 8888:8080
+        - 9888:8080
       env:
         - name: SYNPSE_CONTROLLER_ADDR
           value: "foo"
