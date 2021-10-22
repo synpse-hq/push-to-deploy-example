@@ -10,5 +10,7 @@ spec:
       ports:
         - 9888:8080
       env:
-        - name: SYNPSE_CONTROLLER_ADDR
+        - name: ENV_ONE
+          value: "foo"
+        - name: ENV_TWO
           value: "foo"
