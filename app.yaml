@@ -1,16 +1,41 @@
-name: hello-synpse
+name: wordpress
 scheduling:
   type: Conditional
   selectors:
     type: controller
 spec:
   containers:
-    - name: hello
-      image: quay.io/synpse/hello-synpse-go:latest
+    - name: wordpress
+      auth:
+        username: karolisr
+        fromSecret: dockerPassword
+      image: wordpress:latest
       ports:
-        - 9888:8080
+        - 9888:80
       env:
-        - name: ENV_ONE
-          value: "foo"
-        - name: ENV_TWO
-          value: "foo"
+        - name: WORDPRESS_DB_HOST
+          value: "db"
+        - name: WORDPRESS_DB_USER
+          value: "wordpress"
+        - name: WORDPRESS_DB_PASSWORD
+          value: "wordpress"
+        - name: WORDPRESS_DB_NAME
+          value: "wordpressdb"
+      volumes:
+        - /data/wordpress:/var/www/html
+    - name: db
+      auth:
+        username: karolisr
+        fromSecret: dockerPassword
+      image: mysql:latest
+      volumes:
+        - /data/wordpress-mysql:/var/lib/mysql
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "very-secret"
+        - name: MYSQL_DATABASE
+          value: "wordpressdb"
+        - name: MYSQL_USER
+          value: "wordpress"
+        - name: MYSQL_PASSWORD
+          value: "wordpress"
